@@ -1,5 +1,5 @@
 import sql from "mssql"
-import { DB_DATABASE, DB_PASSWORD, DB_SERVER, DB_USER } from "../config.js";
+import { DB_DATABASE, DB_PASSWORD, DB_PORT, DB_SERVER, DB_USER } from "../config.js";
 
 export const dbSettings = {
   user: DB_USER,
@@ -8,7 +8,9 @@ export const dbSettings = {
   database: DB_DATABASE,
   options: {
     encrypt: true,
-    trustServerCertificate: true
+    trustServerCertificate: true,
+    port: Number(DB_PORT),
+    requestTimeout: 60000
   }
 }
 
